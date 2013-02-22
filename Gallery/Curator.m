@@ -10,27 +10,23 @@
 
 @implementation Curator
 
-@synthesize curatorNameLabel, image, text, backButton;
+@synthesize curatorId, curatorNameLabel, image, text, backButton;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
+    
+    //Set up a curator query
+    PFQuery *curatorQuery = [PFQuery queryWithClassName:@"Curator"];
+    curatorQuery.cachePolicy = kPFCachePolicyCacheElseNetwork;
+    
+    //get the curator info
+    PFObject *curator = [curatorQuery getObjectWithId:curatorId];
+    self.curatorNameLabel.text = [curator objectForKey:@"Name"];
+    self.text.text = [curator objectForKey:@"Text"];
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    //load the image
+    self.image.file = [curator objectForKey:@"Image"];
+    [self.image loadInBackground];
 }
 
 -(IBAction)handleBackButton:(id)sender {

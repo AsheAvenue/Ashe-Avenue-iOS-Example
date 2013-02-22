@@ -33,11 +33,9 @@
 		221B817116D721F60010AC20 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 221B816D16D721F60010AC20 /* SystemConfiguration.framework */; };
 		221B817616D72E410010AC20 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 221B817516D72E410010AC20 /* Image.m */; };
 		221B817916D732D50010AC20 /* Photographer.m in Sources */ = {isa = PBXBuildFile; fileRef = 221B817816D732D50010AC20 /* Photographer.m */; };
-		221B817B16D733EF0010AC20 /* Ansel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 221B817A16D733EF0010AC20 /* Ansel.jpg */; };
-		221B817F16D734810010AC20 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 221B817E16D734810010AC20 /* 3.jpg */; };
-		221B818116D735910010AC20 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 221B818016D735910010AC20 /* 4.jpg */; };
 		221B818416D737B90010AC20 /* Curator.m in Sources */ = {isa = PBXBuildFile; fileRef = 221B818316D737B90010AC20 /* Curator.m */; };
-		221B818616D739900010AC20 /* phil.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 221B818516D739900010AC20 /* phil.jpg */; };
+		226D093816D7E5B300EBFF91 /* Gallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 226D093716D7E5B200EBFF91 /* Gallery.m */; };
+		226D093C16D7F86D00EBFF91 /* GalleryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 226D093B16D7F86D00EBFF91 /* GalleryCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,12 +71,12 @@
 		221B817516D72E410010AC20 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		221B817716D732D50010AC20 /* Photographer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photographer.h; sourceTree = "<group>"; };
 		221B817816D732D50010AC20 /* Photographer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photographer.m; sourceTree = "<group>"; };
-		221B817A16D733EF0010AC20 /* Ansel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ansel.jpg; sourceTree = "<group>"; };
-		221B817E16D734810010AC20 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
-		221B818016D735910010AC20 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
 		221B818216D737B90010AC20 /* Curator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Curator.h; sourceTree = "<group>"; };
 		221B818316D737B90010AC20 /* Curator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Curator.m; sourceTree = "<group>"; };
-		221B818516D739900010AC20 /* phil.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = phil.jpg; sourceTree = "<group>"; };
+		226D093616D7E5B200EBFF91 /* Gallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gallery.h; sourceTree = "<group>"; };
+		226D093716D7E5B200EBFF91 /* Gallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gallery.m; sourceTree = "<group>"; };
+		226D093A16D7F86D00EBFF91 /* GalleryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryCell.h; sourceTree = "<group>"; };
+		226D093B16D7F86D00EBFF91 /* GalleryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +154,10 @@
 				221B814816D71E900010AC20 /* MainStoryboard.storyboard */,
 				221B813F16D71E900010AC20 /* AppDelegate.h */,
 				221B814016D71E900010AC20 /* AppDelegate.m */,
+				226D093616D7E5B200EBFF91 /* Gallery.h */,
+				226D093716D7E5B200EBFF91 /* Gallery.m */,
+				226D093A16D7F86D00EBFF91 /* GalleryCell.h */,
+				226D093B16D7F86D00EBFF91 /* GalleryCell.m */,
 				221B818216D737B90010AC20 /* Curator.h */,
 				221B818316D737B90010AC20 /* Curator.m */,
 				221B817416D72E410010AC20 /* Image.h */,
@@ -170,10 +172,6 @@
 		221B813716D71E900010AC20 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				221B818516D739900010AC20 /* phil.jpg */,
-				221B818016D735910010AC20 /* 4.jpg */,
-				221B817E16D734810010AC20 /* 3.jpg */,
-				221B817A16D733EF0010AC20 /* Ansel.jpg */,
 				221B813816D71E900010AC20 /* Gallery-Info.plist */,
 				221B813916D71E900010AC20 /* InfoPlist.strings */,
 				221B813C16D71E900010AC20 /* main.m */,
@@ -241,10 +239,6 @@
 				221B814516D71E900010AC20 /* Default@2x.png in Resources */,
 				221B814716D71E900010AC20 /* Default-568h@2x.png in Resources */,
 				221B814A16D71E900010AC20 /* MainStoryboard.storyboard in Resources */,
-				221B817B16D733EF0010AC20 /* Ansel.jpg in Resources */,
-				221B817F16D734810010AC20 /* 3.jpg in Resources */,
-				221B818116D735910010AC20 /* 4.jpg in Resources */,
-				221B818616D739900010AC20 /* phil.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +254,8 @@
 				221B817616D72E410010AC20 /* Image.m in Sources */,
 				221B817916D732D50010AC20 /* Photographer.m in Sources */,
 				221B818416D737B90010AC20 /* Curator.m in Sources */,
+				226D093816D7E5B300EBFF91 /* Gallery.m in Sources */,
+				226D093C16D7F86D00EBFF91 /* GalleryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +350,9 @@
 				GCC_PREFIX_HEADER = "Gallery/Gallery-Prefix.pch";
 				INFOPLIST_FILE = "Gallery/Gallery-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = AQGridView;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -370,7 +368,9 @@
 				GCC_PREFIX_HEADER = "Gallery/Gallery-Prefix.pch";
 				INFOPLIST_FILE = "Gallery/Gallery-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = AQGridView;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -394,6 +394,7 @@
 				221B815516D71E900010AC20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
