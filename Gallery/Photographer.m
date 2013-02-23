@@ -10,28 +10,25 @@
 
 @implementation Photographer
 
-@synthesize photographerNameLabel, image, text, backButton;
+@synthesize photographerId, photographerNameLabel, image, text, backButton;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    //Set up a photographer query
+    PFQuery *photographerQuery = [PFQuery queryWithClassName:@"Photographer"];
+    photographerQuery.cachePolicy = kPFCachePolicyCacheElseNetwork;
+    
+    //get the photographer info
+    PFObject *photographer = [photographerQuery getObjectWithId:photographerId];
+    self.photographerNameLabel.text = [photographer objectForKey:@"Name"];
+    self.text.text = [photographer objectForKey:@"Text"];
+    
+    //load the image
+    self.image.file = [photographer objectForKey:@"Image"];
+    [self.image loadInBackground];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 -(IBAction)handleBackButton:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

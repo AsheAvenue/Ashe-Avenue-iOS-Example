@@ -93,11 +93,174 @@
                         <outlet property="secondaryTextLabel" destination="o2p-6B-wvo" id="kvr-OO-tGa"/>
                         <segue destination="anm-NA-aZV" kind="push" identifier="ShowCurator" id="aIe-ey-uyK"/>
                         <segue destination="z1k-RO-313" kind="push" identifier="ShowImage" id="Xzb-Ch-rLm"/>
+                        <segue destination="N5n-4S-3Km" kind="modal" identifier="ShowMenu" modalPresentationStyle="formSheet" modalTransitionStyle="flipHorizontal" id="5n1-P5-8Mb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xUs-J0-oA1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1581" y="-1137"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HXf-fc-dqU">
+            <objects>
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="N5n-4S-3Km" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="xo1-8A-Zmc"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1qZ-Jm-WcN">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="bdM-TA-xfB" kind="relationship" relationship="rootViewController" id="pRg-rl-24P"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YrU-b8-rIP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-461" y="-165"/>
+        </scene>
+        <!--Menu-->
+        <scene sceneID="RXA-iu-ril">
+            <objects>
+                <viewController id="bdM-TA-xfB" customClass="Menu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="A1d-OQ-MAh">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="N9j-Hv-UTr">
+                                <rect key="frame" x="139" y="420" width="263" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleCancelButton:" destination="bdM-TA-xfB" eventType="touchUpInside" id="xMf-M4-PbZ"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="42w-lf-wrb">
+                                <rect key="frame" x="139" y="163" width="263" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                </segments>
+                                <connections>
+                                    <action selector="handleCombination:" destination="bdM-TA-xfB" eventType="valueChanged" id="Ehh-Lf-f9F"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="TDG-Ay-lLY">
+                                <rect key="frame" x="139" y="227" width="263" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="5"/>
+                                    <segment title="6"/>
+                                    <segment title="7"/>
+                                    <segment title="8"/>
+                                </segments>
+                                <connections>
+                                    <action selector="handleCombination:" destination="bdM-TA-xfB" eventType="valueChanged" id="oXJ-rO-1y6"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="ZPo-1b-C45">
+                                <rect key="frame" x="139" y="291" width="263" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="9"/>
+                                    <segment title="10"/>
+                                    <segment title="11"/>
+                                    <segment title="12"/>
+                                </segments>
+                                <connections>
+                                    <action selector="handleCombination:" destination="bdM-TA-xfB" eventType="valueChanged" id="xkX-FO-1wu"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="C3b-zH-XVQ">
+                                <rect key="frame" x="139" y="355" width="263" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="13"/>
+                                    <segment title="14"/>
+                                    <segment title="15"/>
+                                    <segment title="16"/>
+                                </segments>
+                                <connections>
+                                    <action selector="handleCombination:" destination="bdM-TA-xfB" eventType="valueChanged" id="vu8-At-91m"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zF3-tv-oBp"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="N9j-Hv-UTr" id="BBn-k4-UzB"/>
+                        <outlet property="row1" destination="42w-lf-wrb" id="Zqd-zZ-cn6"/>
+                        <outlet property="row2" destination="TDG-Ay-lLY" id="9Lw-v0-5no"/>
+                        <outlet property="row3" destination="ZPo-1b-C45" id="3ze-wa-gcF"/>
+                        <outlet property="row4" destination="C3b-zH-XVQ" id="Q6V-pH-gTd"/>
+                        <segue destination="Krg-jI-K8S" kind="push" identifier="ShowHiddenMenu" id="VDt-l3-ccM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="asX-CT-KKB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="193" y="-165"/>
+        </scene>
+        <!--Hidden Menu-->
+        <scene sceneID="Fw9-I4-Xe8">
+            <objects>
+                <viewController id="Krg-jI-K8S" customClass="HiddenMenu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VQN-q0-4Jw">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wKp-KH-Lhg">
+                                <rect key="frame" x="139" y="563" width="263" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Save and Close">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleCancelButton:" destination="Krg-jI-K8S" eventType="touchUpInside" id="47D-B9-Rfu"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" id="11a-7S-QfX">
+                                <rect key="frame" x="20" y="54" width="500" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Krg-jI-K8S" id="CMM-2B-wNw"/>
+                                    <outlet property="delegate" destination="Krg-jI-K8S" id="1rH-7V-uBz"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Curator on this Kiosk:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="prq-Bo-xGa">
+                                <rect key="frame" x="20" y="20" width="323" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fG6-cA-uZR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z1L-hh-0og" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="846" y="-165"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HNQ-5D-4xb">
@@ -161,7 +324,7 @@
                                 <rect key="frame" x="20" y="54" width="984" height="652"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eVA-dr-hf1">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Test" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eVA-dr-hf1">
                                 <rect key="frame" x="193" y="729" width="300" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
@@ -258,14 +421,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ansel Adams" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WPJ-09-AnM">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WPJ-09-AnM">
                                 <rect key="frame" x="381" y="24" width="505" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="ansel.jpg" id="JqO-kC-fgQ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" id="JqO-kC-fgQ" customClass="PFImageView">
                                 <rect key="frame" x="20" y="20" width="320" height="320"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -289,21 +452,6 @@
                                 <rect key="frame" x="373" y="49" width="631" height="699"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Maecenas faucibus mollis interdum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-
-Donec sed odio dui. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.
-
-Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla.
-
-Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. 
-
-Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Maecenas faucibus mollis interdum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-
-Donec sed odio dui. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur. 
-
-Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Maecenas faucibus mollis interdum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-
-Donec sed odio dui. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Aenean lacinia bibendum nulla sed consectetur.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -339,7 +487,7 @@ Donec sed odio dui. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="a0X-Qk-eRt" customClass="PFImageView">
-                                <rect key="frame" x="20" y="20" width="330" height="320"/>
+                                <rect key="frame" x="20" y="20" width="320" height="320"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QhE-1L-1oc">
@@ -382,9 +530,6 @@ Donec sed odio dui. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec
             <point key="canvasLocation" x="-1067" y="-2152"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="ansel.jpg" width="16" height="16"/>
-    </resources>
     <classes>
         <class className="Curator" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/Curator.h"/>
@@ -412,6 +557,13 @@ Donec sed odio dui. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec
                 <relationship kind="outlet" name="image" candidateClass="PFImageView"/>
             </relationships>
         </class>
+        <class className="HiddenMenu" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HiddenMenu.h"/>
+            <relationships>
+                <relationship kind="action" name="handleCancelButton:"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
         <class className="Image" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/Image.h"/>
             <relationships>
@@ -429,6 +581,18 @@ Donec sed odio dui. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec
                 <relationship kind="outlet" name="secondaryTextLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="Menu" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Menu.h"/>
+            <relationships>
+                <relationship kind="action" name="handleCancelButton:"/>
+                <relationship kind="action" name="handleCombination:"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="row1" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="row2" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="row3" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="row4" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
         <class className="PFImageView" superclassName="UIImageView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PFImageView.h"/>
         </class>
@@ -437,7 +601,7 @@ Donec sed odio dui. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec
             <relationships>
                 <relationship kind="action" name="handleBackButton:"/>
                 <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="image" candidateClass="PFImageView"/>
                 <relationship kind="outlet" name="photographerNameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="text" candidateClass="UITextView"/>
             </relationships>

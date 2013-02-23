@@ -36,7 +36,7 @@
     //get the photographer info
     PFObject *photographer = [imageObject objectForKey:@"Photographer"];
     photographerId = [photographer objectId];
-    self.photographerNameLabel = [photographer objectForKey:@"Name"];
+    self.photographerNameLabel.text = [photographer objectForKey:@"Name"];
 }
 
 #pragma mark -
@@ -47,7 +47,7 @@
     if([[segue identifier] isEqualToString:@"ShowCurator"]) {
         [[segue destinationViewController] setCuratorId:curatorId];
     } else if([[segue identifier] isEqualToString:@"ShowPhotographer"]) {
-        [[segue destinationViewController] setCuratorId:photographerId];
+        [[segue destinationViewController] setPhotographerId:photographerId];
     }
 }
 

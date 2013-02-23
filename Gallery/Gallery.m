@@ -17,6 +17,8 @@
 
 NSMutableArray *images;
 
+#pragma mark -
+#pragma View
 -(void)viewDidLoad {
     [super viewDidLoad];
     
@@ -41,6 +43,24 @@ NSMutableArray *images;
     [imagesQuery whereKey:@"Curator" equalTo:curator];
     imagesQuery.cachePolicy = kPFCachePolicyCacheElseNetwork;
     images = [NSMutableArray arrayWithArray:[imagesQuery findObjects]];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [self becomeFirstResponder];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    
+    [self becomeFirstResponder];
+}
+
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    [self performSegueWithIdentifier:@"ShowMenu" sender:self];
 }
 
 #pragma mark -

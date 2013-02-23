@@ -36,6 +36,8 @@
 		221B818416D737B90010AC20 /* Curator.m in Sources */ = {isa = PBXBuildFile; fileRef = 221B818316D737B90010AC20 /* Curator.m */; };
 		226D093816D7E5B300EBFF91 /* Gallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 226D093716D7E5B200EBFF91 /* Gallery.m */; };
 		226D093C16D7F86D00EBFF91 /* GalleryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 226D093B16D7F86D00EBFF91 /* GalleryCell.m */; };
+		226D093F16D827A100EBFF91 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 226D093E16D827A000EBFF91 /* Menu.m */; };
+		226D094216D8733800EBFF91 /* HiddenMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 226D094116D8733800EBFF91 /* HiddenMenu.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +79,10 @@
 		226D093716D7E5B200EBFF91 /* Gallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gallery.m; sourceTree = "<group>"; };
 		226D093A16D7F86D00EBFF91 /* GalleryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryCell.h; sourceTree = "<group>"; };
 		226D093B16D7F86D00EBFF91 /* GalleryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryCell.m; sourceTree = "<group>"; };
+		226D093D16D827A000EBFF91 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
+		226D093E16D827A000EBFF91 /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
+		226D094016D8733800EBFF91 /* HiddenMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HiddenMenu.h; sourceTree = "<group>"; };
+		226D094116D8733800EBFF91 /* HiddenMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HiddenMenu.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +160,10 @@
 				221B814816D71E900010AC20 /* MainStoryboard.storyboard */,
 				221B813F16D71E900010AC20 /* AppDelegate.h */,
 				221B814016D71E900010AC20 /* AppDelegate.m */,
+				226D093D16D827A000EBFF91 /* Menu.h */,
+				226D093E16D827A000EBFF91 /* Menu.m */,
+				226D094016D8733800EBFF91 /* HiddenMenu.h */,
+				226D094116D8733800EBFF91 /* HiddenMenu.m */,
 				226D093616D7E5B200EBFF91 /* Gallery.h */,
 				226D093716D7E5B200EBFF91 /* Gallery.m */,
 				226D093A16D7F86D00EBFF91 /* GalleryCell.h */,
@@ -256,6 +266,8 @@
 				221B818416D737B90010AC20 /* Curator.m in Sources */,
 				226D093816D7E5B300EBFF91 /* Gallery.m in Sources */,
 				226D093C16D7F86D00EBFF91 /* GalleryCell.m in Sources */,
+				226D093F16D827A100EBFF91 /* Menu.m in Sources */,
+				226D094216D8733800EBFF91 /* HiddenMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,7 +361,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gallery/Gallery-Prefix.pch";
 				INFOPLIST_FILE = "Gallery/Gallery-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = AQGridView;
@@ -367,7 +379,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gallery/Gallery-Prefix.pch";
 				INFOPLIST_FILE = "Gallery/Gallery-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = AQGridView;

@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface Photographer : UIViewController
 
+@property (nonatomic, retain) NSString *photographerId;
 @property (nonatomic, retain) IBOutlet UILabel *photographerNameLabel;
-@property (nonatomic, retain) IBOutlet UIImageView *image;
+@property (nonatomic, retain) IBOutlet PFImageView *image;
 @property (nonatomic, retain) IBOutlet UITextView *text;
 @property (nonatomic, retain) IBOutlet UIButton *backButton;
 
