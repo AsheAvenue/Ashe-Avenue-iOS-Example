@@ -35,12 +35,16 @@
                                     <action selector="handleCuratorButton:" destination="y7y-ds-8EH" eventType="touchUpInside" id="xAa-Pp-M12"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o2p-6B-wvo">
+                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o2p-6B-wvo">
                                 <rect key="frame" x="559" y="18" width="445" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="kMX-hH-JN0" appends="YES" id="nf6-hv-5bU"/>
+                                    <outletCollection property="gestureRecognizers" destination="fIf-1U-KWJ" appends="YES" id="5IK-Nv-Gy6"/>
+                                </connections>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="p2S-fp-9Fg">
                                 <rect key="frame" x="20" y="56" width="984" height="692"/>
@@ -81,6 +85,7 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="jFe-cZ-Y5o"/>
@@ -97,6 +102,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xUs-J0-oA1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="kMX-hH-JN0" userLabel="Right Gesture Recognizer">
+                    <connections>
+                        <action selector="swipeRight:" destination="y7y-ds-8EH" id="B1O-mK-Yvd"/>
+                        <outlet property="delegate" destination="y7y-ds-8EH" id="NLK-0T-hYc"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="fIf-1U-KWJ" userLabel="Left Gesture Recognizer">
+                    <connections>
+                        <action selector="swipeLeft:" destination="y7y-ds-8EH" id="GCl-BS-RRN"/>
+                        <outlet property="delegate" destination="y7y-ds-8EH" id="bF5-MM-qpk"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1581" y="-1137"/>
         </scene>
@@ -226,7 +243,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Save and Close">
+                                <state key="normal" title="Done">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -235,6 +252,38 @@
                                 </state>
                                 <connections>
                                     <action selector="handleCancelButton:" destination="Krg-jI-K8S" eventType="touchUpInside" id="47D-B9-Rfu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="l8t-zs-KWR">
+                                <rect key="frame" x="20" y="278" width="500" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Save Curator">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleChangeCuratorButton:" destination="Krg-jI-K8S" eventType="touchUpInside" id="htB-er-IVJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oNP-Jz-S5s">
+                                <rect key="frame" x="20" y="466" width="500" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Reload">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleWipeOutCacheButton:" destination="Krg-jI-K8S" eventType="touchUpInside" id="rFf-y3-W3B"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" id="11a-7S-QfX">
@@ -252,11 +301,32 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Reload Images and Text Content" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h9y-IR-ITz">
+                                <rect key="frame" x="20" y="360" width="326" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bbu-Fh-zdP">
+                                <rect key="frame" x="20" y="394" width="500" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Don't reload the data unless you have an active internet connection. This is destructive and can't be reversed if you don't have an internet connection.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="fG6-cA-uZR"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="wKp-KH-Lhg" id="IoX-pH-PUe"/>
+                        <outlet property="changeCuratorButton" destination="l8t-zs-KWR" id="P5a-Vy-8K1"/>
+                        <outlet property="curatorPicker" destination="11a-7S-QfX" id="rq1-5M-Wg3"/>
+                        <outlet property="wipeOutCacheButton" destination="oNP-Jz-S5s" id="5zH-tq-Pgz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z1L-hh-0og" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -545,6 +615,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/Gallery.h"/>
             <relationships>
                 <relationship kind="action" name="handleCuratorButton:"/>
+                <relationship kind="action" name="swipeLeft:" candidateClass="UISwipeGestureRecognizer"/>
+                <relationship kind="action" name="swipeRight:" candidateClass="UISwipeGestureRecognizer"/>
                 <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="curatorButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="curatorNameLabel" candidateClass="UILabel"/>
@@ -561,7 +633,12 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HiddenMenu.h"/>
             <relationships>
                 <relationship kind="action" name="handleCancelButton:"/>
+                <relationship kind="action" name="handleChangeCuratorButton:"/>
+                <relationship kind="action" name="handleWipeOutCacheButton:"/>
                 <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="changeCuratorButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="curatorPicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="wipeOutCacheButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="Image" superclassName="UIViewController">
@@ -622,6 +699,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="TWm-Nk-KdA"/>
+        <segue reference="aIe-ey-uyK"/>
     </inferredMetricsTieBreakers>
 </document>

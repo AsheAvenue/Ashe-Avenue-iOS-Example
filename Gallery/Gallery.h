@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
+
 @interface Gallery : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, retain) NSString *curatorId;
@@ -18,5 +19,7 @@
 @property (nonatomic, retain) IBOutlet UICollectionView *collectionView;
 
 -(IBAction)handleCuratorButton:(id)sender;
+-(IBAction)swipeRight:(UISwipeGestureRecognizer *)UISwipeGestureRecognizer;
+-(IBAction)swipeLeft:(UISwipeGestureRecognizer *)UISwipeGestureRecognizer;
 
 @end

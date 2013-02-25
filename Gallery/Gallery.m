@@ -16,17 +16,33 @@
 @synthesize curatorId, curatorNameLabel, curatorButton, secondaryTextLabel;
 
 NSMutableArray *images;
+int leftSwipes = 0;
+int rightSwipes = 0;
 
 #pragma mark -
-#pragma View
+#pragma mark View
+
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    //instantiate the images
-    images = [NSMutableArray new];
-    
     //fake the curator ID for now
     curatorId = @"HhGseMJbOA";
+    
+    [self selectCurator];    
+}
+
+- (void)handleChangeCurator: (NSNotification *) notification {
+    
+    //get the notification's userInfo and parse out the curatorId
+    NSDictionary *dict = notification.userInfo;
+    self.curatorId = [dict objectForKey:@"curatorId"];
+    [self selectCurator];
+    [self.collectionView reloadData];
+}
+
+- (void)selectCurator {
+    //instantiate the images
+    images = [NSMutableArray new];
     
     //Set up a query to get the curator info
     PFQuery *curatorQuery = [PFQuery queryWithClassName:@"Curator"];
@@ -43,28 +59,22 @@ NSMutableArray *images;
     [imagesQuery whereKey:@"Curator" equalTo:curator];
     imagesQuery.cachePolicy = kPFCachePolicyCacheElseNetwork;
     images = [NSMutableArray arrayWithArray:[imagesQuery findObjects]];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    
-    [self becomeFirstResponder];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleChangeCurator:)
+                                                 name:@"CuratorChanged"
+                                               object:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    
-    [self becomeFirstResponder];
-}
-
-- (BOOL)canBecomeFirstResponder {
-    return YES;
-}
-
-- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
-    [self performSegueWithIdentifier:@"ShowMenu" sender:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"CuratorChanged" object:nil];
 }
 
 #pragma mark -
-#pragma Data Source
+#pragma mark Data Source
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView*)collectionView {
     return 1;
@@ -84,7 +94,7 @@ NSMutableArray *images;
 }
 
 #pragma mark -
-#pragma Delegate
+#pragma mark Delegate
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     GalleryCell *cell = (GalleryCell *)[collectionView cellForItemAtIndexPath:indexPath];
@@ -92,7 +102,7 @@ NSMutableArray *images;
 }
 
 #pragma mark -
-#pragma Buttons and Segues
+#pragma mark Buttons and Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -102,11 +112,32 @@ NSMutableArray *images;
         GalleryCell *cell = (GalleryCell *)sender;
         [[segue destinationViewController] setImageId:cell.imageId];
     }
-
 }
 
 -(IBAction)handleCuratorButton:(id)sender {
     [self performSegueWithIdentifier:@"ShowCurator" sender:curatorButton];
+}
+
+#pragma mark -
+#pragma mark Gesture
+
+- (void)swipeLeft:(UISwipeGestureRecognizer *)gestureRecognizer {
+    leftSwipes++;
+    [self handleSwipes];
+}
+
+- (void)swipeRight:(UISwipeGestureRecognizer *)gestureRecognizer {
+    rightSwipes++;
+    [self handleSwipes];
+}
+
+- (void)handleSwipes {
+    NSLog([NSString stringWithFormat:@"Left: %i, Right: %i", leftSwipes, rightSwipes]);
+    if(leftSwipes > 3 && rightSwipes > 3) {
+        [self performSegueWithIdentifier:@"ShowMenu" sender:self];
+        leftSwipes = 0;
+        rightSwipes = 0;
+    }
 }
 
 @end

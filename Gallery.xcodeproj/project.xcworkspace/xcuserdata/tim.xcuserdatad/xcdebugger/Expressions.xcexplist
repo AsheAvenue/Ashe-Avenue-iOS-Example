@@ -11,6 +11,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[Gallery handleChangeCurator:]:Gallery.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "curatorId">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[Gallery prepareForSegue:sender:]:Gallery.m">
       </ContextState>
    </ContextStates>
