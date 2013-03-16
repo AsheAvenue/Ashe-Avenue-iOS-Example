@@ -13,6 +13,7 @@
 
 @property (nonatomic, retain) NSString *curatorId;
 @property (nonatomic, retain) IBOutlet UILabel *curatorNameLabel;
+@property (nonatomic, retain) IBOutlet UILabel *secondaryTextLabel;
 @property (nonatomic, retain) IBOutlet PFImageView *image;
 @property (nonatomic, retain) IBOutlet UITextView *text;
 @property (nonatomic, retain) IBOutlet UIButton *backButton;

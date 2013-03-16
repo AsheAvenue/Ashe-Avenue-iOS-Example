@@ -10,10 +10,13 @@
 
 @implementation Image
 
-@synthesize imageId, curatorId, photographerId, curatorNameLabel, secondaryTextLabel, photographerNameLabel, imageNameLabel, curatorButton, backButton, displayButton, photographerButton, image;
+@synthesize imageId, curatorId, photographerId, secondaryTextLabel, photographerNameLabel, imageNameLabel, curatorButton, backButton, displayButton, photographerButton, image;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [photographerNameLabel setFont:[UIFont fontWithName:@"OpenSans-Light" size:24]];
+    [secondaryTextLabel setFont:[UIFont fontWithName:@"OpenSans-Italic" size:17]];
     
     //Set up an image query
     PFQuery *imageQuery = [PFQuery queryWithClassName:@"Image"];
@@ -30,13 +33,12 @@
     //get the curator info
     PFObject *curator = [imageObject objectForKey:@"Curator"];
     curatorId = [curator objectId];
-    self.curatorNameLabel.text = [curator objectForKey:@"Name"];
-    self.secondaryTextLabel.text = [curator objectForKey:@"SecondaryText"];
+    self.secondaryTextLabel.text = [NSString stringWithFormat:@"from %@'s curated collection", [[curator objectForKey:@"Name"] uppercaseString]];
     
     //get the photographer info
     PFObject *photographer = [imageObject objectForKey:@"Photographer"];
     photographerId = [photographer objectId];
-    self.photographerNameLabel.text = [photographer objectForKey:@"Name"];
+    self.photographerNameLabel.text = [[photographer objectForKey:@"Name"] uppercaseString];
 }
 
 #pragma mark -
@@ -49,10 +51,6 @@
     } else if([[segue identifier] isEqualToString:@"ShowPhotographer"]) {
         [[segue destinationViewController] setPhotographerId:photographerId];
     }
-}
-
--(IBAction)handleCuratorButton:(id)sender {
-    [self performSegueWithIdentifier:@"ShowCurator" sender:curatorButton];
 }
 
 

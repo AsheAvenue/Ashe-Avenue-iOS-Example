@@ -10,10 +10,14 @@
 
 @implementation Curator
 
-@synthesize curatorId, curatorNameLabel, image, text, backButton;
+@synthesize curatorId, curatorNameLabel, secondaryTextLabel, image, text, backButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [curatorNameLabel setFont:[UIFont fontWithName:@"OpenSans-Light" size:24]];
+    [secondaryTextLabel setFont:[UIFont fontWithName:@"OpenSans-Italic" size:17]];
+    [text setFont:[UIFont fontWithName:@"OpenSans" size:17]];
     
     //Set up a curator query
     PFQuery *curatorQuery = [PFQuery queryWithClassName:@"Curator"];
@@ -21,7 +25,8 @@
     
     //get the curator info
     PFObject *curator = [curatorQuery getObjectWithId:curatorId];
-    self.curatorNameLabel.text = [curator objectForKey:@"Name"];
+    self.curatorNameLabel.text = [[curator objectForKey:@"Name"] uppercaseString];
+    self.secondaryTextLabel.text = [curator objectForKey:@"SecondaryText"];
     self.text.text = [curator objectForKey:@"Text"];
 
     //load the image

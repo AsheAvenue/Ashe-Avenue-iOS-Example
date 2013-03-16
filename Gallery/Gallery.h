@@ -16,6 +16,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *curatorNameLabel;
 @property (nonatomic, retain) IBOutlet UIButton *curatorButton;
 @property (nonatomic, retain) IBOutlet UILabel *secondaryTextLabel;
+@property (nonatomic, retain) IBOutlet UIImageView *iButton;
 @property (nonatomic, retain) IBOutlet UICollectionView *collectionView;
 
 -(IBAction)handleCuratorButton:(id)sender;

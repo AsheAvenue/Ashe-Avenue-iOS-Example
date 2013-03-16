@@ -13,7 +13,7 @@
 
 @implementation Gallery
 
-@synthesize curatorId, curatorNameLabel, curatorButton, secondaryTextLabel;
+@synthesize curatorId, curatorNameLabel, curatorButton, secondaryTextLabel, iButton;
 
 NSMutableArray *images;
 int leftSwipes = 0;
@@ -28,6 +28,8 @@ int rightSwipes = 0;
     //fake the curator ID for now
     curatorId = @"HhGseMJbOA";
     
+    [curatorNameLabel setFont:[UIFont fontWithName:@"OpenSans-Light" size:24]];
+    [secondaryTextLabel setFont:[UIFont fontWithName:@"OpenSans-Italic" size:17]];
     [self selectCurator];    
 }
 
@@ -50,7 +52,15 @@ int rightSwipes = 0;
     
     //Get the curator info for the top of the page, plus the button click over to the curator page
     PFObject *curator = [curatorQuery getObjectWithId:curatorId];
-    self.curatorNameLabel.text = [curator objectForKey:@"Name"];
+    
+    self.curatorNameLabel.text = [[curator objectForKey:@"Name"] uppercaseString];
+    
+    //position the "i" button
+    CGRect frame = iButton.frame;
+    CGSize curatorSize = [curatorNameLabel.text sizeWithFont:[UIFont fontWithName:@"OpenSans-Light" size:24]];
+    frame.origin.x = curatorNameLabel.frame.origin.x + curatorSize.width + 12;
+    iButton.frame = frame;
+    
     self.secondaryTextLabel.text = [curator objectForKey:@"SecondaryText"];
     self.curatorId = curator.objectId;
     
