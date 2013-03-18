@@ -10,7 +10,7 @@
 
 @implementation HiddenMenu
 
-@synthesize curatorPicker, changeCuratorButton, wipeOutCacheButton, cancelButton;
+@synthesize curatorPicker, changeCuratorButton, wipeOutCacheButton, hostname, doneButton;
 
 NSArray *curators;
 
@@ -23,6 +23,9 @@ NSArray *curators;
     
     //Get all curators
     curators = [curatorQuery findObjects];
+    
+    //load the hostname
+    hostname.text = (NSString *)[[NSUserDefaults standardUserDefaults] valueForKey:@"hostname"];
 }
 
 #pragma mark -
@@ -88,7 +91,11 @@ NSArray *curators;
     }
 }
 
--(IBAction)handleCancelButton:(id)sender {
+-(IBAction)handleDoneButton:(id)sender {
+    //save the hostname
+    [[NSUserDefaults standardUserDefaults] setValue:hostname.text forKey:@"hostname"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 

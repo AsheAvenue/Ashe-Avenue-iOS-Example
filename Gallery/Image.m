@@ -7,10 +7,11 @@
 //
 
 #import "Image.h"
+#import "AFNetworking.h"
 
 @implementation Image
 
-@synthesize imageId, curatorId, photographerId, secondaryTextLabel, photographerNameLabel, imageNameLabel, curatorButton, backButton, displayButton, photographerButton, image;
+@synthesize imageId, curatorId, photographerId, secondaryTextLabel, photographerNameLabel, curatorButton, displayButton, image, tapCover;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,7 +29,6 @@
     PFObject *imageObject = [imageQuery getObjectWithId:imageId];
     self.image.file = [imageObject objectForKey:@"Image"];
     [self.image loadInBackground];
-    self.imageNameLabel.text = [imageObject objectForKey:@"Name"];
 
     //get the curator info
     PFObject *curator = [imageObject objectForKey:@"Curator"];
@@ -39,6 +39,7 @@
     PFObject *photographer = [imageObject objectForKey:@"Photographer"];
     photographerId = [photographer objectId];
     self.photographerNameLabel.text = [[photographer objectForKey:@"Name"] uppercaseString];
+
 }
 
 #pragma mark -
@@ -55,12 +56,31 @@
 
 
 -(IBAction)handlePhotographerButton:(id)sender {
-    [self performSegueWithIdentifier:@"ShowPhotographer" sender:photographerButton];
+    //[self performSegueWithIdentifier:@"ShowPhotographer" sender:photographerButton];
 }
 
 
 -(IBAction)handleBackButton:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+-(IBAction)handleProjectButton:(id)sender {
+    NSURL *url = [NSURL URLWithString:(NSString *)[[NSUserDefaults standardUserDefaults] valueForKey:@"hostname"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation start];
+}
+
+#pragma mark -
+#pragma Tap Cover
+
+-(IBAction)showTapCover:(id)sender {
+    [UIView animateWithDuration:0.25 animations:^{tapCover.alpha = 1.0;}];
+}
+
+-(IBAction)hideTapCover:(id)sender {
+    [UIView animateWithDuration:0.25 animations:^{tapCover.alpha = 0.0;}];
+}
+
 
 @end
