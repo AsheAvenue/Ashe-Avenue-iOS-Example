@@ -16,6 +16,9 @@
 @synthesize curatorId, curatorNameLabel, curatorButton, secondaryTextLabel, iButton;
 
 NSMutableArray *images;
+NSMutableArray *imageArray;
+NSMutableArray *toDisplayArray;
+
 int leftSwipes = 0;
 int rightSwipes = 0;
 
@@ -26,7 +29,10 @@ int rightSwipes = 0;
     [super viewDidLoad];
     
     //fake the curator ID for now
-    curatorId = @"HhGseMJbOA";
+    curatorId = (NSString *)[[NSUserDefaults standardUserDefaults] valueForKey:@"curatorId"];
+    if(curatorId == nil) {
+        curatorId = @"LCuk53WonW";
+    }
     
     [curatorNameLabel setFont:[UIFont fontWithName:@"OpenSans-Light" size:24]];
     [secondaryTextLabel setFont:[UIFont fontWithName:@"OpenSans-Italic" size:17]];
@@ -38,6 +44,10 @@ int rightSwipes = 0;
     //get the notification's userInfo and parse out the curatorId
     NSDictionary *dict = notification.userInfo;
     self.curatorId = [dict objectForKey:@"curatorId"];
+    
+    [[NSUserDefaults standardUserDefaults] setValue:self.curatorId forKey:@"curatorId"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     [self selectCurator];
     [self.collectionView reloadData];
 }
@@ -45,6 +55,8 @@ int rightSwipes = 0;
 - (void)selectCurator {
     //instantiate the images
     images = [NSMutableArray new];
+    imageArray = [NSMutableArray new];
+    toDisplayArray = [NSMutableArray new];
     
     //Set up a query to get the curator info
     PFQuery *curatorQuery = [PFQuery queryWithClassName:@"Curator"];
@@ -66,10 +78,35 @@ int rightSwipes = 0;
     
     //Get the images for this curator
     PFQuery *imagesQuery = [PFQuery queryWithClassName:@"Image"];
+    [imagesQuery orderByAscending:@"Order"];
     [imagesQuery whereKey:@"Curator" equalTo:curator];
     imagesQuery.cachePolicy = kPFCachePolicyCacheElseNetwork;
     images = [NSMutableArray arrayWithArray:[imagesQuery findObjects]];
     
+    //store just the image ids
+    for(PFObject *image in images) {
+        [imageArray addObject:image.objectId];
+        
+        //photographer name
+        NSString *photographer = [image objectForKey:@"Photographer"];
+        NSString *agency = [image objectForKey:@"Agency"];
+        NSString *toDisplay;
+        
+        if(photographer == nil || [photographer isEqualToString:@""]) {
+            if (agency != nil && ![agency isEqualToString:@""]) {
+                toDisplay = agency;
+            }
+        } else {
+            if (agency != nil && ![agency isEqualToString:@""]) {
+                toDisplay = [NSString stringWithFormat:@"%@, %@", photographer, agency];
+            } else {
+                toDisplay = photographer;
+            }
+        }
+        
+        [toDisplayArray addObject:[toDisplay uppercaseString]];
+
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -97,6 +134,7 @@ int rightSwipes = 0;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     GalleryCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"GalleryCell" forIndexPath:indexPath];
     PFObject *imageObject = [images objectAtIndex:indexPath.item];
+    cell.positionInImageIds = indexPath.item;
     cell.image.file = [imageObject objectForKey:@"Image"];
     cell.imageId = [imageObject objectId];
     [cell.image loadInBackground];
@@ -121,6 +159,9 @@ int rightSwipes = 0;
     } else if([[segue identifier] isEqualToString:@"ShowImage"]) {
         GalleryCell *cell = (GalleryCell *)sender;
         [[segue destinationViewController] setImageId:cell.imageId];
+        [[segue destinationViewController] setImageArray:imageArray];
+        [[segue destinationViewController] setToDisplayArray:toDisplayArray];
+        [[segue destinationViewController] setPositionInArrays:cell.positionInImageIds];
     }
 }
 
@@ -142,7 +183,6 @@ int rightSwipes = 0;
 }
 
 - (void)handleSwipes {
-    NSLog([NSString stringWithFormat:@"Left: %i, Right: %i", leftSwipes, rightSwipes]);
     if(leftSwipes > 3 && rightSwipes > 3) {
         [self performSegueWithIdentifier:@"ShowMenu" sender:self];
         leftSwipes = 0;

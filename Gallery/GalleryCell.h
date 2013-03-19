@@ -13,5 +13,6 @@
 
 @property (nonatomic, retain) IBOutlet PFImageView *image;
 @property (nonatomic, retain) NSString *imageId;
+@property (assign) int positionInImageIds;
 
 @end

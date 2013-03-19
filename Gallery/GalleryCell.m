@@ -10,7 +10,7 @@
 
 @implementation GalleryCell
 
-@synthesize image, imageId;
+@synthesize image, imageId, positionInImageIds;
 
 - (id)initWithFrame:(CGRect)frame
 {
