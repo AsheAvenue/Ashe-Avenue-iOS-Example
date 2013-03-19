@@ -7,33 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
 
-@interface Image : UIViewController
+@interface Image : UIViewController <UIScrollViewDelegate>
 
-@property (nonatomic, retain) NSString *imageId;
-@property (nonatomic, retain) NSMutableArray *imageArray;
-@property (nonatomic, retain) NSMutableArray *toDisplayArray;
-@property (assign) int positionInArrays;
+@property (assign) int imageId;
 @property (nonatomic, retain) NSString *curatorId;
-@property (nonatomic, retain) NSString *photographerId;
+@property (nonatomic, retain) NSString *curatorName;
+@property (assign) int curatorImageCount;
+@property (nonatomic, retain) NSMutableArray *photographerNames;
 @property (nonatomic, retain) IBOutlet UILabel *secondaryTextLabel;
 @property (nonatomic, retain) IBOutlet UILabel *photographerNameLabel;
 @property (nonatomic, retain) IBOutlet UIButton *curatorButton;
 @property (nonatomic, retain) IBOutlet UIButton *displayButton;
-@property (nonatomic, retain) IBOutlet PFImageView *image;
-@property (nonatomic, retain) IBOutlet PFImageView *leftImage;
-@property (nonatomic, retain) IBOutlet PFImageView *rightImage;
+@property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, retain) IBOutlet UIView *tapCover;
-@property (nonatomic, retain) IBOutlet UISwipeGestureRecognizer *leftSwipeGestureRecognizer;
-@property (nonatomic, retain) IBOutlet UISwipeGestureRecognizer *rightSwipeGestureRecognizer;
 
 -(IBAction)handleBackButton:(id)sender;
 -(IBAction)handleProjectButton:(id)sender;
 -(IBAction)showTapCover:(id)sender;
 -(IBAction)hideTapCover:(id)sender;
-
--(IBAction)swipeRight:(UISwipeGestureRecognizer *)UISwipeGestureRecognizer;
--(IBAction)swipeLeft:(UISwipeGestureRecognizer *)UISwipeGestureRecognizer;
 
 @end

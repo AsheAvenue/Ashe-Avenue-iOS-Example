@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
 
 @interface GalleryCell : UICollectionViewCell
 
-@property (nonatomic, retain) IBOutlet PFImageView *image;
-@property (nonatomic, retain) NSString *imageId;
+@property (nonatomic, retain) IBOutlet UIImageView *image;
+@property (assign) int imageId;
+@property (nonatomic, retain) NSString *photographerName;
 @property (assign) int positionInImageIds;
 
 @end

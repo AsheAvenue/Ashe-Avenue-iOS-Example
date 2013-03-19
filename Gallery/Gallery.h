@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
-
 
 @interface Gallery : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, retain) NSString *curatorId;
+@property (nonatomic, retain) NSString *curatorName;
+@property (assign) int curatorImageCount;
 @property (nonatomic, retain) IBOutlet UILabel *curatorNameLabel;
 @property (nonatomic, retain) IBOutlet UIButton *curatorButton;
 @property (nonatomic, retain) IBOutlet UILabel *secondaryTextLabel;
@@ -20,7 +20,5 @@
 @property (nonatomic, retain) IBOutlet UICollectionView *collectionView;
 
 -(IBAction)handleCuratorButton:(id)sender;
--(IBAction)swipeRight:(UISwipeGestureRecognizer *)UISwipeGestureRecognizer;
--(IBAction)swipeLeft:(UISwipeGestureRecognizer *)UISwipeGestureRecognizer;
 
 @end

@@ -50,10 +50,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="kMX-hH-JN0" appends="YES" id="nf6-hv-5bU"/>
-                                    <outletCollection property="gestureRecognizers" destination="fIf-1U-KWJ" appends="YES" id="5IK-Nv-Gy6"/>
-                                </connections>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="p2S-fp-9Fg">
                                 <rect key="frame" x="20" y="87" width="984" height="661"/>
@@ -66,14 +62,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="xWv-Mc-jVc" customClass="GalleryCell">
+                                    <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="xWv-Mc-jVc" customClass="GalleryCell">
                                         <rect key="frame" x="0.0" y="0.0" width="185" height="185"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="185" height="185"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" id="vSn-my-O1Y" customClass="PFImageView">
+                                                <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" id="vSn-my-O1Y">
                                                     <rect key="frame" x="0.0" y="0.0" width="185" height="185"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -111,24 +107,11 @@
                         <outlet property="iButton" destination="Q7L-cV-PKb" id="BFz-IR-o6g"/>
                         <outlet property="secondaryTextLabel" destination="o2p-6B-wvo" id="kvr-OO-tGa"/>
                         <segue destination="z1k-RO-313" kind="push" identifier="ShowImage" id="Xzb-Ch-rLm"/>
-                        <segue destination="N5n-4S-3Km" kind="modal" identifier="ShowMenu" modalPresentationStyle="formSheet" modalTransitionStyle="flipHorizontal" id="5n1-P5-8Mb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xUs-J0-oA1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="kMX-hH-JN0" userLabel="Right Gesture Recognizer">
-                    <connections>
-                        <action selector="swipeRight:" destination="y7y-ds-8EH" id="B1O-mK-Yvd"/>
-                        <outlet property="delegate" destination="y7y-ds-8EH" id="NLK-0T-hYc"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="left" id="fIf-1U-KWJ" userLabel="Left Gesture Recognizer">
-                    <connections>
-                        <action selector="swipeLeft:" destination="y7y-ds-8EH" id="GCl-BS-RRN"/>
-                        <outlet property="delegate" destination="y7y-ds-8EH" id="bF5-MM-qpk"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1581" y="-1137"/>
+            <point key="canvasLocation" x="-1125" y="-1137"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HXf-fc-dqU">
@@ -147,7 +130,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YrU-b8-rIP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-461" y="-165"/>
+            <point key="canvasLocation" x="-1369" y="131"/>
         </scene>
         <!--Menu-->
         <scene sceneID="RXA-iu-ril">
@@ -241,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asX-CT-KKB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="193" y="-165"/>
+            <point key="canvasLocation" x="-715" y="131"/>
         </scene>
         <!--Hidden Menu-->
         <scene sceneID="Fw9-I4-Xe8">
@@ -357,7 +340,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z1L-hh-0og" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="846" y="-165"/>
+            <point key="canvasLocation" x="-62" y="131"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HNQ-5D-4xb">
@@ -391,33 +374,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" id="r6n-cP-NHk" userLabel="Left image" customClass="PFImageView">
-                                <rect key="frame" x="-742" y="96" width="836" height="554"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" id="OEi-ll-mkn" userLabel="Center image" customClass="PFImageView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="Rid-Ob-3wG">
                                 <rect key="frame" x="94" y="96" width="836" height="554"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" id="4UU-au-bhc" userLabel="Right image" customClass="PFImageView">
-                                <rect key="frame" x="930" y="96" width="836" height="554"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="fIO-qA-UFu" userLabel="Left bar">
-                                <rect key="frame" x="0.0" y="0.0" width="95" height="768"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
-                                </accessibility>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="pqz-yG-uoZ" userLabel="Right bar">
-                                <rect key="frame" x="929" y="0.0" width="95" height="768"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
-                                </accessibility>
-                            </imageView>
-                            <view alpha="0.0" contentMode="scaleToFill" id="Pwx-Ua-8eD" userLabel="Tap cover">
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="z1k-RO-313" id="qUh-oF-haV"/>
+                                </connections>
+                            </scrollView>
+                            <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" id="Pwx-Ua-8eD" userLabel="Tap cover">
                                 <rect key="frame" x="94" y="96" width="836" height="554"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -449,55 +413,19 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9TP-h9-ujs" userLabel="Touch up and down button">
-                                <rect key="frame" x="94" y="96" width="836" height="554"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="hideTapCover:" destination="z1k-RO-313" eventType="touchUpOutside" id="3QF-fY-bdb"/>
-                                    <action selector="hideTapCover:" destination="z1k-RO-313" eventType="touchUpInside" id="Pbp-Mb-zUr"/>
-                                    <action selector="showTapCover:" destination="z1k-RO-313" eventType="touchDown" id="ycb-v7-ef7"/>
-                                    <outletCollection property="gestureRecognizers" destination="KLl-qE-bdb" appends="YES" id="eNz-cl-wjq"/>
-                                    <outletCollection property="gestureRecognizers" destination="KvO-yw-VoL" appends="YES" id="DzN-1q-QAa"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" id="0BV-q9-sIH" userLabel="Top BG">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BRy-dQ-zpX">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BRy-dQ-zpX" userLabel="Photographer name">
                                 <rect key="frame" x="24" y="22" width="505" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lkf-6w-vxn">
-                                <rect key="frame" x="12" y="14" width="513" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="handlePhotographerButton:" destination="z1k-RO-313" eventType="touchUpInside" id="2vN-IZ-6ti"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wIv-C7-5na">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wIv-C7-5na" userLabel="Secondary Text">
                                 <rect key="frame" x="559" y="25" width="445" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -551,33 +479,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="hq5-sB-9Gt"/>
                     <connections>
-                        <outlet property="curatorButton" destination="lkf-6w-vxn" id="6I6-HL-rWs"/>
                         <outlet property="displayButton" destination="IWB-LA-Jvx" id="EDf-id-veu"/>
-                        <outlet property="image" destination="OEi-ll-mkn" id="1Ej-l8-CqE"/>
-                        <outlet property="leftImage" destination="r6n-cP-NHk" id="uji-S6-mQb"/>
-                        <outlet property="leftSwipeGestureRecognizer" destination="KvO-yw-VoL" id="7ta-An-Wti"/>
                         <outlet property="photographerNameLabel" destination="BRy-dQ-zpX" id="Ppk-xm-HmH"/>
-                        <outlet property="rightImage" destination="4UU-au-bhc" id="ROX-5T-XkN"/>
-                        <outlet property="rightSwipeGestureRecognizer" destination="KLl-qE-bdb" id="11o-JJ-6hg"/>
+                        <outlet property="scrollView" destination="Rid-Ob-3wG" id="gWC-SC-pTQ"/>
                         <outlet property="secondaryTextLabel" destination="wIv-C7-5na" id="6Da-qF-LET"/>
                         <outlet property="tapCover" destination="Pwx-Ua-8eD" id="FtR-U6-fFP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gUR-nI-eRm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer delaysTouchesEnded="NO" direction="right" id="KLl-qE-bdb" userLabel="Right swipe">
-                    <connections>
-                        <action selector="swipeRight:" destination="z1k-RO-313" id="fZ1-ug-rd6"/>
-                        <outlet property="delegate" destination="z1k-RO-313" id="hop-OA-n8x"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer delaysTouchesEnded="NO" direction="left" id="KvO-yw-VoL" userLabel="Left swipe">
-                    <connections>
-                        <action selector="swipeLeft:" destination="z1k-RO-313" id="8sQ-21-207"/>
-                        <outlet property="delegate" destination="z1k-RO-313" id="O9i-3c-Rrj"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-429" y="-1137"/>
+            <point key="canvasLocation" x="27" y="-1137"/>
         </scene>
         <!--Curator-->
         <scene sceneID="Nry-4a-cZF">
@@ -609,8 +520,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="kMX-hH-JN0" appends="YES" id="Bgl-f3-I7b"/>
+                                    <outletCollection property="gestureRecognizers" destination="fIf-1U-KWJ" appends="YES" id="ACu-gT-Dmw"/>
+                                </connections>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="a0X-Qk-eRt" customClass="PFImageView">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="a0X-Qk-eRt">
                                 <rect key="frame" x="45" y="105" width="380" height="380"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -654,9 +569,22 @@
                         <outlet property="secondaryTextLabel" destination="Epv-kc-wRh" id="Fbg-00-8Xb"/>
                         <outlet property="text" destination="rnB-92-4cW" id="qfc-hx-jgj"/>
                         <segue destination="y7y-ds-8EH" kind="push" identifier="ShowGallery" id="Vxv-kg-xpn"/>
+                        <segue destination="N5n-4S-3Km" kind="modal" identifier="ShowMenu" modalPresentationStyle="formSheet" modalTransitionStyle="flipHorizontal" id="ZPH-ez-iu7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ze-xw-sQi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="kMX-hH-JN0" userLabel="Right Gesture Recognizer">
+                    <connections>
+                        <action selector="swipeRight:" destination="anm-NA-aZV" id="Xac-4e-0ZK"/>
+                        <outlet property="delegate" destination="anm-NA-aZV" id="qg2-T2-OlI"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="fIf-1U-KWJ" userLabel="Left Gesture Recognizer">
+                    <connections>
+                        <action selector="swipeLeft:" destination="anm-NA-aZV" id="vYG-IC-uwS"/>
+                        <outlet property="delegate" destination="anm-NA-aZV" id="JLR-Gq-s15"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2790" y="-1137"/>
         </scene>
@@ -675,9 +603,11 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/Curator.h"/>
             <relationships>
                 <relationship kind="action" name="handleGalleryButton:"/>
+                <relationship kind="action" name="swipeLeft:" candidateClass="UISwipeGestureRecognizer"/>
+                <relationship kind="action" name="swipeRight:" candidateClass="UISwipeGestureRecognizer"/>
                 <relationship kind="outlet" name="curatorNameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="galleryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="image" candidateClass="PFImageView"/>
+                <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="secondaryTextLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="text" candidateClass="UITextView"/>
             </relationships>
@@ -686,8 +616,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/Gallery.h"/>
             <relationships>
                 <relationship kind="action" name="handleCuratorButton:"/>
-                <relationship kind="action" name="swipeLeft:" candidateClass="UISwipeGestureRecognizer"/>
-                <relationship kind="action" name="swipeRight:" candidateClass="UISwipeGestureRecognizer"/>
                 <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="curatorButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="curatorNameLabel" candidateClass="UILabel"/>
@@ -698,7 +626,7 @@
         <class className="GalleryCell" superclassName="UICollectionViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GalleryCell.h"/>
             <relationships>
-                <relationship kind="outlet" name="image" candidateClass="PFImageView"/>
+                <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="HiddenMenu" superclassName="UIViewController">
@@ -718,20 +646,13 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/Image.h"/>
             <relationships>
                 <relationship kind="action" name="handleBackButton:"/>
-                <relationship kind="action" name="handlePhotographerButton:"/>
                 <relationship kind="action" name="handleProjectButton:"/>
                 <relationship kind="action" name="hideTapCover:"/>
                 <relationship kind="action" name="showTapCover:"/>
-                <relationship kind="action" name="swipeLeft:" candidateClass="UISwipeGestureRecognizer"/>
-                <relationship kind="action" name="swipeRight:" candidateClass="UISwipeGestureRecognizer"/>
                 <relationship kind="outlet" name="curatorButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="displayButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="image" candidateClass="PFImageView"/>
-                <relationship kind="outlet" name="leftImage" candidateClass="PFImageView"/>
-                <relationship kind="outlet" name="leftSwipeGestureRecognizer" candidateClass="UISwipeGestureRecognizer"/>
                 <relationship kind="outlet" name="photographerNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rightImage" candidateClass="PFImageView"/>
-                <relationship kind="outlet" name="rightSwipeGestureRecognizer" candidateClass="UISwipeGestureRecognizer"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="secondaryTextLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="tapCover" candidateClass="UIView"/>
             </relationships>
@@ -747,9 +668,6 @@
                 <relationship kind="outlet" name="row3" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="row4" candidateClass="UISegmentedControl"/>
             </relationships>
-        </class>
-        <class className="PFImageView" superclassName="UIImageView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PFImageView.h"/>
         </class>
         <class className="UICollectionReusableView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
