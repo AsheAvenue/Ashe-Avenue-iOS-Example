@@ -13,6 +13,10 @@
 
 @synthesize imageId, imageArray, toDisplayArray, positionInArrays, curatorId, photographerId, secondaryTextLabel, photographerNameLabel, curatorButton, displayButton, image, rightImage, leftImage, tapCover, leftSwipeGestureRecognizer, rightSwipeGestureRecognizer;
 
+int timerCount;
+int MAX_SECONDS_BEFORE_GOING_BACK_TO_CURATOR = 15;
+NSTimer *timer;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -65,6 +69,14 @@
     self.secondaryTextLabel.text = [NSString stringWithFormat:@"from %@'s curated collection", [[curator objectForKey:@"Name"] uppercaseString]];
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [self startTimer];
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [self stopTimer];
+}
+
 #pragma mark -
 #pragma Buttons and Segues
 
@@ -76,12 +88,6 @@
         [[segue destinationViewController] setPhotographerId:photographerId];
     }
 }
-
-
--(IBAction)handlePhotographerButton:(id)sender {
-    //[self performSegueWithIdentifier:@"ShowPhotographer" sender:photographerButton];
-}
-
 
 -(IBAction)handleBackButton:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -98,10 +104,12 @@
 #pragma Tap Cover
 
 -(IBAction)showTapCover:(id)sender {
+    [self resetTimer];
     [UIView animateWithDuration:0.25 animations:^{tapCover.alpha = 1.0;}];
 }
 
 -(IBAction)hideTapCover:(id)sender {
+    [self resetTimer];
     [UIView animateWithDuration:0.25 animations:^{tapCover.alpha = 0.0;}];
 }
 
@@ -165,6 +173,8 @@
     } else {
         leftSwipeGestureRecognizer.enabled = NO;
     }
+    
+    [self resetTimer];
 }
 
 - (void)swipeRight:(UISwipeGestureRecognizer *)gestureRecognizer {
@@ -186,6 +196,8 @@
     rightImage.alpha = 0;
     tapCover.alpha = 0;
     [UIView commitAnimations];
+    
+    photographerNameLabel.text = [toDisplayArray objectAtIndex:positionInArrays];
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.1];
@@ -220,6 +232,20 @@
         rightSwipeGestureRecognizer.enabled = NO;
     }
 
+    [self resetTimer];
 }
+
+#pragma mark -
+#pragma mark Timer
+- (void)increaseTimerCount {
+    timerCount++;
+    if(timerCount == MAX_SECONDS_BEFORE_GOING_BACK_TO_CURATOR) { [self.navigationController popToRootViewControllerAnimated:YES]; }
+}
+- (void)startTimer {
+    [self resetTimer];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(increaseTimerCount) userInfo:nil repeats:YES];
+}
+- (void)resetTimer { timerCount = 0; }
+- (void)stopTimer { [timer invalidate]; }
 
 @end

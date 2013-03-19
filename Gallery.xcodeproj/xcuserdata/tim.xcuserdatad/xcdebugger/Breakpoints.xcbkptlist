@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Gallery/Image.m"
-         timestampString = "385358081.704377"
+         timestampString = "385394587.398079"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "132"
-         endingLineNumber = "132"
+         startingLineNumber = "140"
+         endingLineNumber = "140"
          landmarkName = "-swipeLeft:"
          landmarkType = "5">
       </FileBreakpoint>

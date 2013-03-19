@@ -22,21 +22,19 @@ NSMutableArray *toDisplayArray;
 int leftSwipes = 0;
 int rightSwipes = 0;
 
+int timerCount;
+int MAX_SECONDS_BEFORE_GOING_BACK = 15;
+NSTimer *timer;
+
 #pragma mark -
 #pragma mark View
 
 -(void)viewDidLoad {
     [super viewDidLoad];
-    
-    //fake the curator ID for now
-    curatorId = (NSString *)[[NSUserDefaults standardUserDefaults] valueForKey:@"curatorId"];
-    if(curatorId == nil) {
-        curatorId = @"LCuk53WonW";
-    }
-    
+        
     [curatorNameLabel setFont:[UIFont fontWithName:@"OpenSans-Light" size:24]];
     [secondaryTextLabel setFont:[UIFont fontWithName:@"OpenSans-Italic" size:17]];
-    [self selectCurator];    
+    [self selectCurator];
 }
 
 - (void)handleChangeCurator: (NSNotification *) notification {
@@ -105,8 +103,8 @@ int rightSwipes = 0;
         }
         
         [toDisplayArray addObject:[toDisplay uppercaseString]];
-
     }
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -114,10 +112,12 @@ int rightSwipes = 0;
                                              selector:@selector(handleChangeCurator:)
                                                  name:@"CuratorChanged"
                                                object:nil];
+    [self startTimer];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"CuratorChanged" object:nil];
+    [self stopTimer];
 }
 
 #pragma mark -
@@ -154,9 +154,7 @@ int rightSwipes = 0;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([[segue identifier] isEqualToString:@"ShowCurator"]) {
-        [[segue destinationViewController] setCuratorId:curatorId];
-    } else if([[segue identifier] isEqualToString:@"ShowImage"]) {
+    if([[segue identifier] isEqualToString:@"ShowImage"]) {
         GalleryCell *cell = (GalleryCell *)sender;
         [[segue destinationViewController] setImageId:cell.imageId];
         [[segue destinationViewController] setImageArray:imageArray];
@@ -166,11 +164,15 @@ int rightSwipes = 0;
 }
 
 -(IBAction)handleCuratorButton:(id)sender {
-    [self performSegueWithIdentifier:@"ShowCurator" sender:curatorButton];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark -
 #pragma mark Gesture
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self resetTimer];
+}
 
 - (void)swipeLeft:(UISwipeGestureRecognizer *)gestureRecognizer {
     leftSwipes++;
@@ -189,5 +191,19 @@ int rightSwipes = 0;
         rightSwipes = 0;
     }
 }
+
+#pragma mark -
+#pragma mark Timer
+- (void)increaseTimerCount {
+    timerCount++;
+    if(timerCount == MAX_SECONDS_BEFORE_GOING_BACK) { [self.navigationController popViewControllerAnimated:YES]; }
+}
+- (void)startTimer {
+    [self resetTimer];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(increaseTimerCount) userInfo:nil repeats:YES];
+}
+- (void)resetTimer { timerCount = 0; }
+- (void)stopTimer { [timer invalidate]; }
+
 
 @end

@@ -110,7 +110,6 @@
                         <outlet property="curatorNameLabel" destination="LJu-DF-C0l" id="I9o-PP-tEX"/>
                         <outlet property="iButton" destination="Q7L-cV-PKb" id="BFz-IR-o6g"/>
                         <outlet property="secondaryTextLabel" destination="o2p-6B-wvo" id="kvr-OO-tGa"/>
-                        <segue destination="anm-NA-aZV" kind="push" identifier="ShowCurator" id="aIe-ey-uyK"/>
                         <segue destination="z1k-RO-313" kind="push" identifier="ShowImage" id="Xzb-Ch-rLm"/>
                         <segue destination="N5n-4S-3Km" kind="modal" identifier="ShowMenu" modalPresentationStyle="formSheet" modalTransitionStyle="flipHorizontal" id="5n1-P5-8Mb"/>
                     </connections>
@@ -373,12 +372,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="y7y-ds-8EH" kind="relationship" relationship="rootViewController" id="f09-ng-2wc"/>
+                        <segue destination="anm-NA-aZV" kind="relationship" relationship="rootViewController" id="lYn-1X-VwT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k2M-sQ-hQL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2743" y="-1137"/>
+            <point key="canvasLocation" x="-3939" y="-1137"/>
         </scene>
         <!--Image-->
         <scene sceneID="HkT-lo-q5O">
@@ -562,8 +561,6 @@
                         <outlet property="rightSwipeGestureRecognizer" destination="KLl-qE-bdb" id="11o-JJ-6hg"/>
                         <outlet property="secondaryTextLabel" destination="wIv-C7-5na" id="6Da-qF-LET"/>
                         <outlet property="tapCover" destination="Pwx-Ua-8eD" id="FtR-U6-fFP"/>
-                        <segue destination="anm-NA-aZV" kind="push" identifier="ShowCurator" id="TWm-Nk-KdA"/>
-                        <segue destination="Hfh-kx-2Ps" kind="push" identifier="ShowPhotographer" id="OIe-lv-iSt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gUR-nI-eRm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -581,78 +578,6 @@
                 </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-429" y="-1137"/>
-        </scene>
-        <!--Photographer-->
-        <scene sceneID="bEE-1a-baQ">
-            <objects>
-                <viewController id="Hfh-kx-2Ps" customClass="Photographer" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4J9-dy-3H8">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" id="L3Z-4j-E1x">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" id="Bac-dP-Fp3" userLabel="Top BG">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N8h-Pj-Tsl">
-                                <rect key="frame" x="24" y="22" width="505" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" id="JqO-kC-fgQ" customClass="PFImageView">
-                                <rect key="frame" x="45" y="105" width="383" height="383"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" id="8Sx-tX-GDQ">
-                                <rect key="frame" x="473" y="105" width="500" height="515"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="backbutton.png" id="GEi-MQ-140">
-                                <rect key="frame" x="25" y="673" width="194" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9Uc-oh-ZbY">
-                                <rect key="frame" x="25" y="673" width="194" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="handleBackButton:" destination="Hfh-kx-2Ps" eventType="touchUpInside" id="Mz5-b3-jgG"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="2yf-O5-kWm"/>
-                    <connections>
-                        <outlet property="backButton" destination="9Uc-oh-ZbY" id="EyU-ka-prv"/>
-                        <outlet property="image" destination="JqO-kC-fgQ" id="ov0-fl-9BG"/>
-                        <outlet property="photographerNameLabel" destination="N8h-Pj-Tsl" id="Tvd-Fc-ZMf"/>
-                        <outlet property="text" destination="8Sx-tX-GDQ" id="HK7-24-JRD"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GZe-jt-zsY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="753" y="-1137"/>
         </scene>
         <!--Curator-->
         <scene sceneID="Nry-4a-cZF">
@@ -714,7 +639,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="handleBackButton:" destination="anm-NA-aZV" eventType="touchUpInside" id="5iM-pl-eQc"/>
+                                    <action selector="handleGalleryButton:" destination="anm-NA-aZV" eventType="touchUpInside" id="GX2-f9-xCD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -723,16 +648,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="t5G-yO-cPK"/>
                     <connections>
-                        <outlet property="backButton" destination="QhE-1L-1oc" id="v8t-Wv-wzy"/>
                         <outlet property="curatorNameLabel" destination="9fM-YU-J7U" id="27p-OM-p1K"/>
+                        <outlet property="galleryButton" destination="QhE-1L-1oc" id="QAa-Yj-Qjj"/>
                         <outlet property="image" destination="a0X-Qk-eRt" id="EYd-Wh-IsJ"/>
                         <outlet property="secondaryTextLabel" destination="Epv-kc-wRh" id="Fbg-00-8Xb"/>
                         <outlet property="text" destination="rnB-92-4cW" id="qfc-hx-jgj"/>
+                        <segue destination="y7y-ds-8EH" kind="push" identifier="ShowGallery" id="Vxv-kg-xpn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ze-xw-sQi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1067" y="-2152"/>
+            <point key="canvasLocation" x="-2790" y="-1137"/>
         </scene>
     </scenes>
     <resources>
@@ -748,9 +674,9 @@
         <class className="Curator" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/Curator.h"/>
             <relationships>
-                <relationship kind="action" name="handleBackButton:"/>
-                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
+                <relationship kind="action" name="handleGalleryButton:"/>
                 <relationship kind="outlet" name="curatorNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="galleryButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="image" candidateClass="PFImageView"/>
                 <relationship kind="outlet" name="secondaryTextLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="text" candidateClass="UITextView"/>
@@ -825,16 +751,6 @@
         <class className="PFImageView" superclassName="UIImageView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PFImageView.h"/>
         </class>
-        <class className="Photographer" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Photographer.h"/>
-            <relationships>
-                <relationship kind="action" name="handleBackButton:"/>
-                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="image" candidateClass="PFImageView"/>
-                <relationship kind="outlet" name="photographerNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="text" candidateClass="UITextView"/>
-            </relationships>
-        </class>
         <class className="UICollectionReusableView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
         </class>
@@ -850,7 +766,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="TWm-Nk-KdA"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -10,7 +10,7 @@
 
 @implementation Curator
 
-@synthesize curatorId, curatorNameLabel, secondaryTextLabel, image, text, backButton;
+@synthesize curatorId, curatorNameLabel, secondaryTextLabel, image, text, galleryButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -19,6 +19,11 @@
     [secondaryTextLabel setFont:[UIFont fontWithName:@"OpenSans-Italic" size:17]];
     [text setFont:[UIFont fontWithName:@"OpenSans" size:17]];
     
+    curatorId = (NSString *)[[NSUserDefaults standardUserDefaults] valueForKey:@"curatorId"];
+    if(curatorId == nil) {
+        curatorId = @"LCuk53WonW";
+    }
+
     //Set up a curator query
     PFQuery *curatorQuery = [PFQuery queryWithClassName:@"Curator"];
     curatorQuery.cachePolicy = kPFCachePolicyCacheElseNetwork;
@@ -34,8 +39,15 @@
     [self.image loadInBackground];
 }
 
--(IBAction)handleBackButton:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+-(IBAction)handleGalleryButton:(id)sender {
+    [self performSegueWithIdentifier:@"ShowGallery" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([[segue identifier] isEqualToString:@"ShowGallery"]) {
+        [[segue destinationViewController] setCuratorId:curatorId];
+    }
 }
 
 @end
