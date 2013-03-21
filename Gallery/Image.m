@@ -8,13 +8,14 @@
 
 #import "Image.h"
 #import "AFNetworking.h"
+#import "SVProgressHUD.h"
 
 @implementation Image
 
 @synthesize curatorId, imageId, curatorName, curatorImageCount, photographerNames, secondaryTextLabel, photographerNameLabel, curatorButton, displayButton, scrollView, tapCover;
 
 int timerCount;
-int MAX_SECONDS_BEFORE_GOING_BACK_TO_CURATOR = 15;
+int MAX_SECONDS_BEFORE_GOING_BACK_TO_CURATOR = 30;
 NSTimer *timer;
 
 - (void)viewDidLoad {
@@ -39,6 +40,10 @@ NSTimer *timer;
     
     self.photographerNameLabel.text = [[photographerNames objectAtIndex:(imageId -1)] uppercaseString];
     self.secondaryTextLabel.text = [NSString stringWithFormat:@"from %@'s curated collection", [curatorName uppercaseString]];
+    
+    [UIView animateWithDuration:0.25 delay:1 options:UIViewAnimationOptionCurveLinear animations:^{
+        tapCover.alpha = 0.0;
+    } completion:^(BOOL finished) {}];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -64,10 +69,29 @@ NSTimer *timer;
 }
 
 -(IBAction)handleProjectButton:(id)sender {
-    NSURL *url = [NSURL URLWithString:(NSString *)[[NSUserDefaults standardUserDefaults] valueForKey:@"hostname"]];
+    int pageNumber = (int)(scrollView.contentOffset.x / 836);
+    NSString *hostName = (NSString *)[[NSUserDefaults standardUserDefaults] valueForKey:@"hostname"];
+    NSString *fullUrl = [NSString stringWithFormat:@"http://%@:3000/update/%@-%d", hostName, curatorId, (pageNumber + 1)];
+    NSURL *url = [NSURL URLWithString:fullUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [operation start];
+    
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeNone];
+    [self resetTimer];
+    [NSTimer scheduledTimerWithTimeInterval:3.0f
+                                     target:self
+                                   selector:@selector(stopHUDTimer)
+                                   userInfo:nil
+                                    repeats:NO];
+}
+
+-(void)stopHUDTimer {
+    [SVProgressHUD dismiss];
+}
+
+-(IBAction)handleCuratorButton:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark -
@@ -85,9 +109,6 @@ NSTimer *timer;
 
 #pragma mark -
 #pragma mark Scrolling
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-
-}
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     [self resetTimer];
@@ -98,9 +119,7 @@ NSTimer *timer;
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     [self resetTimer];
-    [UIView animateWithDuration:0.25 animations:^{
-        tapCover.alpha = 0.0;
-    }];
+    [UIView animateWithDuration:0.25 animations:^{tapCover.alpha = 0.0;}];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)sv {
@@ -108,7 +127,5 @@ NSTimer *timer;
     int pageNumber = (int)(sv.contentOffset.x / 836);
     self.photographerNameLabel.text = [[photographerNames objectAtIndex:pageNumber] uppercaseString];
 }
-
-
 
 @end

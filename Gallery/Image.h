@@ -24,7 +24,6 @@
 
 -(IBAction)handleBackButton:(id)sender;
 -(IBAction)handleProjectButton:(id)sender;
--(IBAction)showTapCover:(id)sender;
--(IBAction)hideTapCover:(id)sender;
+-(IBAction)handleCuratorButton:(id)sender;
 
 @end

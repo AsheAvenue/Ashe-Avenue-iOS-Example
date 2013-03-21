@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "221B812C16D71E900010AC20"
                BuildableName = "Gallery.app"
-               BlueprintName = "Gallery"
+               BlueprintName = "Offset"
                ReferencedContainer = "container:Gallery.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,7 +34,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "221B812C16D71E900010AC20"
             BuildableName = "Gallery.app"
-            BlueprintName = "Gallery"
+            BlueprintName = "Offset"
             ReferencedContainer = "container:Gallery.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -53,7 +53,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "221B812C16D71E900010AC20"
             BuildableName = "Gallery.app"
-            BlueprintName = "Gallery"
+            BlueprintName = "Offset"
             ReferencedContainer = "container:Gallery.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -71,7 +71,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "221B812C16D71E900010AC20"
             BuildableName = "Gallery.app"
-            BlueprintName = "Gallery"
+            BlueprintName = "Offset"
             ReferencedContainer = "container:Gallery.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

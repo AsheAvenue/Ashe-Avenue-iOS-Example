@@ -95,7 +95,7 @@ int rightSwipes = 0;
 }
 
 - (void)handleSwipes {
-    if(leftSwipes > 3 && rightSwipes > 3) {
+    if(leftSwipes > 1 && rightSwipes > 1) {
         [self performSegueWithIdentifier:@"ShowMenu" sender:self];
         leftSwipes = 0;
         rightSwipes = 0;

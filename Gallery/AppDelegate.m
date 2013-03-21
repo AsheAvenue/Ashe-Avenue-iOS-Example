@@ -12,9 +12,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //set up parse
-    [Parse setApplicationId:@"NIKSHXX83zwUGefsV77VoW3qILwJdzrmU7OfLGBD"
-                  clientKey:@"9wnUPhb4yT9ds30nWSl6MNp2cRQ27JbtojMtq4bQ"];
     
     //handle shaking
     [application setApplicationSupportsShakeToEdit:YES];

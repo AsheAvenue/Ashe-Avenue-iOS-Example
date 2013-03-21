@@ -18,7 +18,7 @@
 NSMutableArray *images;
 
 int timerCount;
-int MAX_SECONDS_BEFORE_GOING_BACK = 15;
+int MAX_SECONDS_BEFORE_GOING_BACK = 30;
 NSTimer *timer;
 
 #pragma mark -
