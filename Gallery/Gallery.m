@@ -13,7 +13,7 @@
 
 @implementation Gallery
 
-@synthesize curatorId, curatorName, curatorImageCount, curatorNameLabel, curatorButton, secondaryTextLabel, iButton;
+@synthesize curatorId, curatorName, curatorSecondaryText, curatorImageCount, curatorNameLabel, curatorButton, secondaryTextLabel, iButton;
 
 NSMutableArray *images;
 
@@ -34,6 +34,7 @@ NSTimer *timer;
     images = [NSMutableArray new];
     
     self.curatorNameLabel.text = [self.curatorName uppercaseString];
+    self.secondaryTextLabel.text = self.curatorSecondaryText;
     
     //position the "i" button
     CGRect frame = iButton.frame;

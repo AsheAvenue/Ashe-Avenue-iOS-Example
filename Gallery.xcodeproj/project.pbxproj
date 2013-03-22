@@ -210,7 +210,7 @@
 		2204DAA816F8CF9500EB46BC /* Full-1-33.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Full-1-33.jpg"; sourceTree = "<group>"; };
 		2204DAA916F8CF9500EB46BC /* Full-1-34.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Full-1-34.jpg"; sourceTree = "<group>"; };
 		2204DAAA16F8CF9500EB46BC /* Full-1-35.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Full-1-35.jpg"; sourceTree = "<group>"; };
-		221B812D16D71E900010AC20 /* Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		221B812D16D71E900010AC20 /* Offset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Offset.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		221B813016D71E900010AC20 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		221B813216D71E900010AC20 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		221B813416D71E900010AC20 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -431,7 +431,7 @@
 		221B812E16D71E900010AC20 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				221B812D16D71E900010AC20 /* Gallery.app */,
+				221B812D16D71E900010AC20 /* Offset.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -583,7 +583,7 @@
 			);
 			name = Offset;
 			productName = Gallery;
-			productReference = 221B812D16D71E900010AC20 /* Gallery.app */;
+			productReference = 221B812D16D71E900010AC20 /* Offset.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

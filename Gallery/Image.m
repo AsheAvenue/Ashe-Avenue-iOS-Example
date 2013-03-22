@@ -91,7 +91,7 @@ NSTimer *timer;
 }
 
 -(IBAction)handleCuratorButton:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark -

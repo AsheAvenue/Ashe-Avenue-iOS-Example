@@ -12,6 +12,7 @@
 
 @property (nonatomic, retain) NSString *curatorId;
 @property (nonatomic, retain) NSString *curatorName;
+@property (nonatomic, retain) NSString *curatorSecondaryText;
 @property (assign) int curatorImageCount;
 @property (nonatomic, retain) IBOutlet UILabel *curatorNameLabel;
 @property (nonatomic, retain) IBOutlet UIButton *curatorButton;

@@ -57,10 +57,15 @@ int rightSwipes = 0;
     if (filePath) {
         NSString *contentOfFile = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
         NSArray *array = [contentOfFile componentsSeparatedByString:@"|"];
+        
         curatorName = [[array objectAtIndex:0] uppercaseString];
         self.curatorNameLabel.text = curatorName;
         curatorImageCount = [[array objectAtIndex:1] intValue];
-        self.text.text = [array objectAtIndex:2];
+        
+        NSString *secondaryText = [array objectAtIndex:2];
+        self.secondaryTextLabel.text = secondaryText;
+
+        self.text.text = [array objectAtIndex:3];
     }
     
     //load the image
@@ -77,6 +82,7 @@ int rightSwipes = 0;
     if([[segue identifier] isEqualToString:@"ShowGallery"]) {
         [[segue destinationViewController] setCuratorId:curatorId];
         [[segue destinationViewController] setCuratorName:curatorName];
+        [[segue destinationViewController] setCuratorSecondaryText:secondaryTextLabel.text];
         [[segue destinationViewController] setCuratorImageCount:curatorImageCount];
     }
 }
