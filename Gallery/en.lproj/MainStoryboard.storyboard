@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2CQ-lh-bby">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2CQ-lh-bby">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Gallery-->
@@ -157,7 +158,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="42w-lf-wrb">
-                                <rect key="frame" x="139" y="163" width="263" height="44"/>
+                                <rect key="frame" x="139" y="163" width="263" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="1"/>
@@ -170,7 +171,7 @@
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="TDG-Ay-lLY">
-                                <rect key="frame" x="139" y="227" width="263" height="44"/>
+                                <rect key="frame" x="139" y="227" width="263" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="5"/>
@@ -183,7 +184,7 @@
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="ZPo-1b-C45">
-                                <rect key="frame" x="139" y="291" width="263" height="44"/>
+                                <rect key="frame" x="139" y="291" width="263" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="9"/>
@@ -196,7 +197,7 @@
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="C3b-zH-XVQ">
-                                <rect key="frame" x="139" y="355" width="263" height="44"/>
+                                <rect key="frame" x="139" y="355" width="263" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="13"/>
@@ -318,7 +319,6 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NDc-Ch-GDP">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -583,92 +583,8 @@
         <image name="projectbutton.png" width="388" height="160"/>
         <image name="rightarrow.png" width="73" height="86"/>
     </resources>
-    <classes>
-        <class className="Curator" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Curator.h"/>
-            <relationships>
-                <relationship kind="action" name="handleGalleryButton:"/>
-                <relationship kind="action" name="swipeLeft:" candidateClass="UISwipeGestureRecognizer"/>
-                <relationship kind="action" name="swipeRight:" candidateClass="UISwipeGestureRecognizer"/>
-                <relationship kind="outlet" name="curatorNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="galleryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="secondaryTextLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="text" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="Gallery" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Gallery.h"/>
-            <relationships>
-                <relationship kind="action" name="handleCuratorButton:"/>
-                <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="curatorButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="curatorNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="iButton" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="secondaryTextLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GalleryCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GalleryCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="HiddenMenu" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HiddenMenu.h"/>
-            <relationships>
-                <relationship kind="action" name="handleChangeCuratorButton:"/>
-                <relationship kind="action" name="handleDoneButton:"/>
-                <relationship kind="outlet" name="changeCuratorButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="curatorPicker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="hostname" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="Image" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Image.h"/>
-            <relationships>
-                <relationship kind="action" name="handleBackButton:"/>
-                <relationship kind="action" name="handleCuratorButton:"/>
-                <relationship kind="action" name="handleProjectButton:"/>
-                <relationship kind="outlet" name="curatorButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="displayButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="photographerNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="secondaryTextLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tapCover" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="MainNav" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNav.h"/>
-        </class>
-        <class className="Menu" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Menu.h"/>
-            <relationships>
-                <relationship kind="action" name="handleCancelButton:"/>
-                <relationship kind="action" name="handleCombination:"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="row1" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="row2" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="row3" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="row4" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="MenuNav" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuNav.h"/>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
+        <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
