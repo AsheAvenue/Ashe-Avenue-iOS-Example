@@ -58,15 +58,10 @@ NSTimer *timer;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleChangeCurator:)
-                                                 name:@"CuratorChanged"
-                                               object:nil];
     [self startTimer];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"CuratorChanged" object:nil];
     [self stopTimer];
 }
 

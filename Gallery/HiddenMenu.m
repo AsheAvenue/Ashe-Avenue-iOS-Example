@@ -7,10 +7,11 @@
 //
 
 #import "HiddenMenu.h"
+#import "MenuNav.h"
 
 @implementation HiddenMenu
 
-@synthesize curatorPicker, changeCuratorButton, wipeOutCacheButton, hostname, doneButton;
+@synthesize curatorPicker, changeCuratorButton, hostname, doneButton;
 
 NSMutableArray *curatorIds;
 NSMutableArray *curatorNames;
@@ -38,6 +39,10 @@ NSMutableArray *curatorNames;
     
     //load the hostname
     hostname.text = (NSString *)[[NSUserDefaults standardUserDefaults] valueForKey:@"hostname"];
+    
+    //select the proper curator
+    NSString *curatorId = [(MenuNav *)self.navigationController curatorId];
+    [self.curatorPicker selectRow:([curatorId intValue]-1) inComponent:0 animated:NO];
 }
 
 #pragma mark -
@@ -52,7 +57,7 @@ NSMutableArray *curatorNames;
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [curatorNames objectAtIndex:row];
+    return [NSString stringWithFormat:@"%@ (%d)", [curatorNames objectAtIndex:row], (row + 1)];
 }
 
 #pragma mark -
@@ -61,11 +66,11 @@ NSMutableArray *curatorNames;
 -(IBAction)handleChangeCuratorButton:(id)sender {
     //get the current Curator
     NSUInteger selectedRow = [curatorPicker selectedRowInComponent:0];
-    NSString *curatorId = [curatorIds objectAtIndex:selectedRow];
+    NSString *id = [curatorIds objectAtIndex:selectedRow];
     
     // call the notification center, which is being listened to by the Gallery class
     NSMutableDictionary *dict = [NSMutableDictionary new];
-    [dict setObject:curatorId forKey:@"curatorId"];
+    [dict setObject:id forKey:@"curatorId"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"CuratorChanged" object:self userInfo:dict];
 }
 

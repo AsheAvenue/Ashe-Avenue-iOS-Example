@@ -12,12 +12,10 @@
 
 @property (nonatomic, retain) IBOutlet UIPickerView *curatorPicker;
 @property (nonatomic, retain) IBOutlet UIButton *changeCuratorButton;
-@property (nonatomic, retain) IBOutlet UIButton *wipeOutCacheButton;
 @property (nonatomic, retain) IBOutlet UITextField *hostname;
 @property (nonatomic, retain) IBOutlet UIButton *doneButton;
 
 -(IBAction)handleChangeCuratorButton:(id)sender;
--(IBAction)handleWipeOutCacheButton:(id)sender;
 -(IBAction)handleDoneButton:(id)sender;
 
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2CQ-lh-bby">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2CQ-lh-bby">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -113,10 +113,10 @@
             </objects>
             <point key="canvasLocation" x="-1125" y="-1137"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Menu Nav-->
         <scene sceneID="HXf-fc-dqU">
             <objects>
-                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="N5n-4S-3Km" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="N5n-4S-3Km" customClass="MenuNav" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="xo1-8A-Zmc"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -310,10 +310,10 @@
             </objects>
             <point key="canvasLocation" x="-62" y="131"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Nav-->
         <scene sceneID="HNQ-5D-4xb">
             <objects>
-                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="2CQ-lh-bby" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="2CQ-lh-bby" customClass="MainNav" sceneMemberID="viewController">
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -619,12 +619,10 @@
             <relationships>
                 <relationship kind="action" name="handleChangeCuratorButton:"/>
                 <relationship kind="action" name="handleDoneButton:"/>
-                <relationship kind="action" name="handleWipeOutCacheButton:"/>
                 <relationship kind="outlet" name="changeCuratorButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="curatorPicker" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="hostname" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="wipeOutCacheButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="Image" superclassName="UIViewController">
@@ -641,6 +639,9 @@
                 <relationship kind="outlet" name="tapCover" candidateClass="UIView"/>
             </relationships>
         </class>
+        <class className="MainNav" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainNav.h"/>
+        </class>
         <class className="Menu" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/Menu.h"/>
             <relationships>
@@ -653,6 +654,9 @@
                 <relationship kind="outlet" name="row4" candidateClass="UISegmentedControl"/>
             </relationships>
         </class>
+        <class className="MenuNav" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuNav.h"/>
+        </class>
         <class className="UICollectionReusableView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
         </class>
@@ -661,9 +665,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

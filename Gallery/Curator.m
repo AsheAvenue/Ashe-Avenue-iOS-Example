@@ -8,6 +8,8 @@
 
 #import "Curator.h"
 #import "Gallery.h"
+#import "Menu.h"
+#import "MainNav.h"
 
 @implementation Curator
 
@@ -36,6 +38,18 @@ int rightSwipes = 0;
     }
     
     [self selectCurator];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleChangeCurator:)
+                                                 name:@"CuratorChanged"
+                                               object:nil];
+    
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"CuratorChanged" object:nil];
 }
 
 - (void)handleChangeCurator: (NSNotification *) notification {
@@ -71,6 +85,9 @@ int rightSwipes = 0;
     //load the image
     UIImage *curatorImage = [UIImage imageNamed:[NSString stringWithFormat:@"Curator-%@.jpg", curatorId]];
     [self.image setImage:curatorImage];
+    
+    //wipe out the existing UIImageView array
+    [(MainNav *)self.navigationController setImgViews:nil];
 }
 
 -(IBAction)handleGalleryButton:(id)sender {
@@ -84,6 +101,8 @@ int rightSwipes = 0;
         [[segue destinationViewController] setCuratorName:curatorName];
         [[segue destinationViewController] setCuratorSecondaryText:secondaryTextLabel.text];
         [[segue destinationViewController] setCuratorImageCount:curatorImageCount];
+    } else if ([[segue identifier] isEqualToString:@"ShowMenu"]) {
+        [[segue destinationViewController] setCuratorId:curatorId];
     }
 }
 

@@ -9,6 +9,7 @@
 #import "Image.h"
 #import "AFNetworking.h"
 #import "SVProgressHUD.h"
+#import "MainNav.h"
 
 @implementation Image
 
@@ -24,16 +25,29 @@ NSTimer *timer;
     [photographerNameLabel setFont:[UIFont fontWithName:@"OpenSans-Light" size:24]];
     [secondaryTextLabel setFont:[UIFont fontWithName:@"OpenSans-Italic" size:17]];
     
+
+    NSMutableArray *imgViews = [(MainNav *)self.navigationController imgViews];
+    NSMutableArray *tempImgViews = [NSMutableArray new];
+    
     //add the images
     for(int i = 1; i <= curatorImageCount; i++) {
-        NSString *fileName = [NSString stringWithFormat:@"Full-%@-%d.jpg", curatorId, i];
-        UIImage *img = [UIImage imageNamed:fileName];
-        UIImageView *imgView = [[UIImageView alloc] initWithImage:img];
-        [imgView setContentMode:UIViewContentModeScaleAspectFit];
-        [imgView setFrame:CGRectMake((i-1) * 836, 0, 836, 554)];
-        [scrollView addSubview:imgView];
+        if(imgViews == nil) {
+            NSString *fileName = [NSString stringWithFormat:@"Full-%@-%d.jpg", curatorId, i];
+            UIImage *img = [UIImage imageNamed:fileName];
+            UIImageView *imgView = [[UIImageView alloc] initWithImage:img];
+            [imgView setContentMode:UIViewContentModeScaleAspectFit];
+            [imgView setFrame:CGRectMake((i-1) * 836, 0, 836, 554)];
+            [tempImgViews addObject:imgView];
+            [scrollView addSubview:imgView];
+        } else {
+            [scrollView addSubview:[imgViews objectAtIndex:i-1]];
+        }
     }
     [scrollView setContentSize:CGSizeMake(836 * curatorImageCount, 554)];
+    
+    if(tempImgViews.count > 0) {
+        [(MainNav *)self.navigationController setImgViews:tempImgViews];
+    }
     
     //scroll to this index
     [scrollView scrollRectToVisible:CGRectMake((imageId-1) * 836, 0, 836, 554) animated:NO];
